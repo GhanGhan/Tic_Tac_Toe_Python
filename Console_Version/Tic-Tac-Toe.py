@@ -19,3 +19,5 @@ gameInput.showGrid()'''
 
 gameInput.newGame()
 
+gameInput.enterData()
+

@@ -1,4 +1,4 @@
-gamesPlayed = 1
+gamesPlayed = 0
 turnNumber = 0
 playerInput = ""
 
@@ -35,7 +35,21 @@ def newGame():
     
 
 def enterData():
-    # TODO: Allow player to enter a string that contains the mark and cell location they would like to pick
-    pass
+    accepted = False
+
+    while accepted == False:
+        print("Please Enter you Mark, X for Player 1 and O for player 2, and cell location (1 to 3 inclusive)")
+        playerInput = input(":")
+        if len(playerInput) != 5:
+            # Error messge
+            print("Input data should be 5 characters in length, including spaces")
+            pass
+        elif playerInput[1] != " " or playerInput[3] != " ":
+            #Error messgge
+            print("Character at index 1 and index 3 should be spaces")
+            pass
+        else:
+            accepted = True
+            print("Thank you for entering your cell position and mark")
 
 
