@@ -3,21 +3,10 @@ import gameInput
 
 
 # Welcome Both players to the game
-'''print("\nWelcome to Tic-Tac-Toe!!!!!! \nPlayer 1 is \"X\", Player 2 is \"O\"! ")
-print("Type \"G\" then press \"Enter\" when you are ready to play!")
 
-key = ""
+gameInput.newGame(1)
 
-while key != "G":
-    key = input(": ")
-    if key != "G":
-        print("Invalid input, please enter the character \"G\"")
+gameInput.enterData(1)
 
-print("Alright, lets start the game!!!")
-###
-gameInput.showGrid()'''
 
-gameInput.newGame()
-
-gameInput.enterData()
 

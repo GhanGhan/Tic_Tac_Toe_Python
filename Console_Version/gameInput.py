@@ -1,9 +1,6 @@
-gamesPlayed = 0
-turnNumber = 0
-playerInput = ""
 
 
-def newGame():
+def newGame(gamesPlayed):
     # TODO: Welcome Player if new game has started and prompt to begin
     # Welcome Both players to the game
     if gamesPlayed == 0:
@@ -34,11 +31,22 @@ def newGame():
                 print("Invalid input, please enter \"G\" to play again or \"Q\" to quit playing")
     
 
-def enterData():
-    accepted = False
+def enterData(turns):
+    #accepted = False
+    if turns % 2 == 0:
+        print("Player 1's turn, please enter your mark - \"X\", and cell location e.g \"X 2 1\"")
+        playerInput = input(": ")
+    else:
+        print("Player 2's turn, please enter your mark - \"O\", and cell location e.g \"O 2 1\"")
+        playerInput = input(": ")
+
+    return playerInput
+
+
+"""
 
     while accepted == False:
-        print("Please Enter you Mark, X for Player 1 and O for player 2, and cell location (1 to 3 inclusive)")
+        print("Please Enter you Mark - \"X\" for Player 1 and \"O\" for Player 2, and cell location (1 to 3 inclusive)")
         playerInput = input(":")
         if len(playerInput) != 5:
             # Error messge
@@ -50,6 +58,7 @@ def enterData():
             pass
         else:
             accepted = True
-            print("Thank you for entering your cell position and mark")
+            return playerInput
+"""
 
 
