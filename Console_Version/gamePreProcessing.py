@@ -1,6 +1,9 @@
 rows, cols = (3, 3)
 
 board = [["A" for i in range(cols)] for j in range(rows)]
+rowUpdate = -1
+colUpdate = -1
+
 
 
 def parseData(playerInput):
@@ -55,6 +58,9 @@ def validateData(playerInput, turn_number):
     # Validate the row and column Part A
     rowValue = data[1]
     colValue = data[2]
+    
+    global rowUpdate, colUpdate
+    
 
     if rowValue < 1 or rowValue > 3:
         print("The row input value must be between 1 and 3 inclusive.")
@@ -68,8 +74,13 @@ def validateData(playerInput, turn_number):
     if board[rowValue][colValue] == "A": # Location has not yet been filled
         board[rowValue][colValue] = mark
         print("Entry has been added to the board")
+        rowUpdate = rowValue
+        colUpdate  = colValue
+
     else: # Location has been filled
         print("Position has already been filled, pick a different one!!!")
+        rowUpdate = -1
+        colUpdate  = -1
         return -1
 
     
