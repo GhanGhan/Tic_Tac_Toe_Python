@@ -76,20 +76,16 @@ def checkWinner(turns, board, row, col):
     else: #Currently Player 2's turn, mark = "O"
         mark = "O"
 
-    print("The mark is: " + mark)
     # Check if last input results in a row victory
     gameWon = checkRow(board, mark, row)
-    print("Row victory is: " , gameWon)
 
     # Check if last input results in a column vicotry
     if gameWon == False:
         gameWon = checkColumn(board, mark, col)
-        print("Col victory is: " , gameWon)
 
     # Check if last input results in a diagonal vicotry
     if gameWon == False:
         gameWon = checkDiagnol(board, mark, row, col)
-        print("Diagnol victory is: " , gameWon)
 
     global gamesWonO, gamesWonX
     if gameWon == True:
@@ -119,21 +115,17 @@ def checkColumn(board, mark, col):
     return winner
 
 def checkDiagnol(board, mark, row, col):
-    print("In CheckDiagnol")
     winner = True
     if (row + col) % 2 == 0: # if true, mark is on a diaglon line
         if row == col: # Top left to bottom right
-            print("Test top left to bottom right")
             for k in range(3):
                 if board[k][k] != mark:
                     winner = False
-        print("Value of winner is: ", winner)
         if winner == True:
             return winner
         
         if (row + col) == 2 or (winner == False and row == 1 and col == 1): # Bottom left to top right, and winner hasn't been declared
             winner = True
-            print("Test bottom left to top")
             for k in range (3):
                 if board[3-1-k][k] != mark:
                     winner = False
