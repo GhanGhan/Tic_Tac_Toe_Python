@@ -10,6 +10,7 @@ def checkStaleMate(turns, board):
     if turns == 8: # in the process of completing the 9th round, if winner still not declared, game has to be a tie
         staleMate = True
     if turns == 7: # there is one cell left
+        print("There is still one cell left")
         testBoard = board.copy()
         mark = "X" # It will always be Player 1's turn next
         cell = findRemainingCell(testBoard)
@@ -26,7 +27,7 @@ def checkStaleMate(turns, board):
             cell = findRemainingCell(testBoard)
             rowOptions[index] = cell[0]
             colOptions[index] = cell[1]
-            testBoard[rowOptions[option]][colOptions[option]] = "S"
+            testBoard[rowOptions[index]][colOptions[index]] = "S"
         # Remove "S" mark from those cells
         unMarkCell(testBoard, "S")
 
@@ -95,9 +96,6 @@ def checkWinner(turns, board, row, col):
             gamesWonO = gamesWonO + 1
         
     return gameWon
-
-
-
 
 def checkRow(board, mark, row):
     winner = True
