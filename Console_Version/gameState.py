@@ -3,7 +3,7 @@ gamesWonO = 0
 
 
 
-
+# Function returns True if the game has ended or can only end in a stalemate, retuns false otherwise
 def checkStaleMate(turns, board):
     # TODO
     staleMate = False
@@ -50,7 +50,7 @@ def checkStaleMate(turns, board):
     return staleMate
 
 
-
+# checkStaleMate Helper Functions
 def findRemainingCell(board):
     cell = [-1, -1]
     for i in range(3):
@@ -69,7 +69,7 @@ def unMarkCell(board, tempMark):
 
 
 
-
+# Function returns True if Player 1 or Player 2 has won the game, returns false otherwise
 def checkWinner(turns, board, row, col):
     # TODO:
     if turns % 2 == 0: #Currently Player 1's turn, mark = X
