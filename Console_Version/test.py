@@ -1,7 +1,7 @@
 import gameState as gS
 
-def printBoard():
-    for row in board5:
+def printBoard(board):
+    for row in board:
         print(row)
 
 
@@ -32,13 +32,15 @@ board5 = [   ["X","X","O"],
              ["X","A","A"]
          ]
 
-printBoard()
+
 
 turns = 6
 row = 0
 col = 0
 
-winner = gS.checkWinner(turns, board5, row, col)
+gameBoard = board5
+printBoard(gameBoard)
+winner = gS.checkWinner(turns, gameBoard, row, col)
 
 print("Winner value is: ", winner)
 if winner == True:
@@ -46,7 +48,7 @@ if winner == True:
 else:
     print("No one has one")
 
-staleMate = gS.checkStaleMate(turns, board5)
+staleMate = gS.checkStaleMate(turns, gameBoard)
 print("Stalemate value is: ", staleMate)
 if staleMate == True:
     print("This is a stalemate")
