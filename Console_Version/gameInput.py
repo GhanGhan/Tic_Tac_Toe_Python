@@ -30,7 +30,7 @@ def newGame(gamesPlayed):
             else:
                 print("Invalid input, please enter \"G\" to play again or \"Q\" to quit playing")
 
-    return key
+                
     
 
 def enterData(turns):

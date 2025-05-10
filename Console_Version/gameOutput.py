@@ -10,12 +10,13 @@ def printSeriesMetrics(p1Wins, p2Wins):
 def printCurrentMetrics(gameWon, gameStaleMate, board):
     # TODO: display if the game has been won (and by who), or that the game is a draw, or that the game will continue
     # in any case, print the number of turns the the current gameBoard
+    global gamesPlayed, gameTurns
 
     print("GAMEBOARD!!!")
     for row in board:
         print(row)
     
-    print((gameTurns + 1), " turns have been played!")
+    print(str(gameTurns + 1) + " turns have been played!")
 
     if gameWon:
         gamesPlayed = gamesPlayed + 1

@@ -6,7 +6,7 @@ colUpdate = -1
 
 
 
-def parseData(playerInput):
+def parseData(playerInput): # HELPER FUNCTION
     # TODO: Parse mark, row and col value from input string and store data in a list
     if len(playerInput) != 5:
         # Error messge

@@ -12,24 +12,49 @@ play = True
 
 while play:
     # Start a new game
+
     key = gInput.newGame(gOutput.gamesPlayed)
 
     if key == "Q":
         play = False
         break
 
-    # Get player input - mark and cell location to mark
-    while True:
-        inputData = gInput.enterData(gOutput.gameTurns)
-        print("Input Data : " + inputData + " Has length of: " + str(len(inputData)))
+    done = False
 
-        valid = gProc.validateData(inputData, gOutput.gameTurns)
-        if valid != -1:
-            break
-        print("This is not valid")
-    print("This is valid")
+    while not done:
+        # Get player input - mark and cell location to mark, then enter into board
+        while True:
+            inputData = gInput.enterData(gOutput.gameTurns)
+            print("Input Data : " + inputData + " Has length of: " + str(len(inputData)))
 
-    
+            valid = gProc.validateData(inputData, gOutput.gameTurns)
+            if valid != -1:
+                break
+            print("This is not valid")
+        print("This is valid")
+
+        # Check state of the game
+        gameWon = gState.checkWinner(gOutput.gameTurns, gProc.board, gProc.rowUpdate, gProc.colUpdate)
+        gameTie = gState.checkStaleMate(gOutput.gameTurns, gProc.board)
+
+        # Display game state
+        gOutput.printCurrentMetrics(gameWon, gameTie, gProc.board)
+        
+
+        if gameWon == True or gameTie == True:
+            done = True 
+            gOutput.printSeriesMetrics(gState.gamesWonX, gState.gamesWonO)
+            ## Reset gameboard
+            gProc.board = board = [["A" for i in range(3)] for j in range(3)]
+            # Reset number of turns
+            gOutput.gameTurns = 0
+
+
+
+
+
+
+
 
 
 
