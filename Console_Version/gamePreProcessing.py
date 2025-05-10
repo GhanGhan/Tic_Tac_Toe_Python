@@ -1,6 +1,6 @@
 rows, cols = (3, 3)
 
-board = [["A" for i in range(cols)] for j in range(rows)]
+board = [[" " for i in range(cols)] for j in range(rows)]
 rowUpdate = -1
 colUpdate = -1
 
@@ -71,7 +71,7 @@ def validateData(playerInput, turn_number):
         return -1
     
     # Validate the row and column Part B
-    if board[rowValue][colValue] == "A": # Location has not yet been filled
+    if board[rowValue][colValue] == " ": # Location has not yet been filled
         board[rowValue][colValue] = mark
         print("Entry has been added to the board")
         rowUpdate = rowValue

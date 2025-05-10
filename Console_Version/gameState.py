@@ -12,7 +12,6 @@ def checkStaleMate(turns, board):
     if turns == 8: # in the process of completing the 9th round, if winner still not declared, game has to be a tie
         staleMate = True
     if turns == 7: # there is one cell left
-        print("There is still one cell left")
         testBoard = copy.deepcopy(board)
         mark = "X" # It will always be Player 1's turn next
         cell = findRemainingCell(testBoard)
@@ -31,21 +30,8 @@ def checkStaleMate(turns, board):
             colOptions[index] = cell[1]
             testBoard[rowOptions[index]][colOptions[index]] = "S"
         # Remove "S" mark from those cells
-        print("Marking Test Board Cells---------------")
-        print("Test board")
-        for row in testBoard: ##  MARKED AN UNMARKED CORRECTLY
-            print(row)
-        print("Real board")
-        for row in board:
-            print(row)
         unMarkCell(testBoard, "S")
-        print("Test board")
-        for row in testBoard: ##
-            print(row)
 
-        print("Real game board, BEFORE checking for stalemate")
-        for row in board: ##  real gameboard shuold be untouched
-            print(row)
 
 
         #Test if both combinations will lead to a stalemate
@@ -64,9 +50,6 @@ def checkStaleMate(turns, board):
         elif staleMateList[0] == True and staleMateList[1] == True and staleMateList[2] == True and staleMateList[3] == True:
             staleMate = True
 
-    print("Real game board, AFTER checking for stalemate")
-    for row in board: ##  real gameboard shuold be untouched
-        print(row)
     return staleMate
 
 
@@ -75,7 +58,7 @@ def findRemainingCell(board):
     cell = [-1, -1]
     for i in range(3):
         for j in range(3):
-            if board[i][j] == "A":
+            if board[i][j] == " ":
                 cell = [i, j]
                 return cell
 
@@ -85,7 +68,7 @@ def unMarkCell(board, tempMark):
     for i in range(3):
         for j in range(3):
             if board[i][j] == tempMark:
-                board[i][j] = "A"
+                board[i][j] = " "
 
 
 
@@ -117,7 +100,6 @@ def checkWinner(turns, board, row, col):
         
     return gameWon
 
-
 # checkWinner Helper Functions
 def checkRow(board, mark, row):
     winner = True
@@ -144,7 +126,6 @@ def checkDiagnol(board, mark, row, col):
             for k in range(3):
                 if board[k][k] != mark:
                     winner = False
-            print("checkDiagonal result \: " + str(winner))
             if winner == True:
                 return winner
         
@@ -156,7 +137,6 @@ def checkDiagnol(board, mark, row, col):
     else:
         winner = False
 
-    print("checkDiagonal result /: " + str(winner))
     return winner
 
 
