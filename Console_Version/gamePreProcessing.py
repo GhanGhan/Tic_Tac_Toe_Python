@@ -62,12 +62,12 @@ def validateData(playerInput, turn_number):
     global rowUpdate, colUpdate
     
 
-    if rowValue < 1 or rowValue > 3:
-        print("The row input value must be between 1 and 3 inclusive.")
+    if rowValue < 0 or rowValue > 2:
+        print("The row input value must be between 0 and 2 inclusive.")
         return -1
 
-    if colValue < 1 or colValue > 3:
-        print("The column input value must be between 1 and 3 inclusive")
+    if colValue < 0 or colValue > 2:
+        print("The column input value must be between 0 and 2 inclusive")
         return -1
     
     # Validate the row and column Part B
